@@ -1,0 +1,31 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Authors>David Melendez</Authors>
+    <Company>David Melendez</Company>
+    <Copyright>Copyright © David Melendez, MIT License</Copyright>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>docFx .net core build debug documentation</PackageTags>
+    <PackageReleaseNotes>Check https://github.com/dlmelendez/docFxWebAppRefresh/releases for the latest release information.</PackageReleaseNotes>
+    <PackageIcon>projectNugetPic.png</PackageIcon>
+    <PackageProjectUrl>https://github.com/dlmelendez/docFxWebAppRefresh</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/dlmelendez/docFxWebAppRefresh</RepositoryUrl>
+    <Description>DocFx .net core web app build middleware. Rebuilds docFx assets when files are changed in a web app.</Description>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Hosting.Abstractions" Version="2.2.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="9.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="projectNugetPic.png" Pack="true" PackagePath="\"/>
+  </ItemGroup>
+
+</Project>
