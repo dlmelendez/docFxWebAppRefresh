@@ -1,0 +1,44 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\api\ElCamino.DocFx.WebAppRefresh.Sample.html" />
+    <None Include="wwwroot\api\ElCamino.DocFx.WebAppRefresh.Sample.Program.html" />
+    <None Include="wwwroot\api\ElCamino.DocFx.WebAppRefresh.Sample.Startup.html" />
+    <None Include="wwwroot\api\index.html" />
+    <None Include="wwwroot\api\toc.html" />
+    <None Include="wwwroot\articles\intro.html" />
+    <None Include="wwwroot\articles\toc.html" />
+    <None Include="wwwroot\favicon.ico" />
+    <None Include="wwwroot\fonts\glyphicons-halflings-regular.eot" />
+    <None Include="wwwroot\fonts\glyphicons-halflings-regular.svg" />
+    <None Include="wwwroot\fonts\glyphicons-halflings-regular.ttf" />
+    <None Include="wwwroot\fonts\glyphicons-halflings-regular.woff" />
+    <None Include="wwwroot\fonts\glyphicons-halflings-regular.woff2" />
+    <None Include="wwwroot\index.html" />
+    <None Include="wwwroot\logo.svg" />
+    <None Include="wwwroot\styles\docfx.css" />
+    <None Include="wwwroot\styles\docfx.js" />
+    <None Include="wwwroot\styles\docfx.vendor.css" />
+    <None Include="wwwroot\styles\docfx.vendor.js" />
+    <None Include="wwwroot\styles\lunr.js" />
+    <None Include="wwwroot\styles\lunr.min.js" />
+    <None Include="wwwroot\styles\main.css" />
+    <None Include="wwwroot\styles\main.js" />
+    <None Include="wwwroot\styles\search-worker.js" />
+    <None Include="wwwroot\toc.html" />
+    <None Include="wwwroot\xrefmap.yml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="docfx.console" Version="2.46.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="ElCamino.DocFx.WebAppRefresh" Version="1.0.0" />
+  </ItemGroup>
+
+</Project>

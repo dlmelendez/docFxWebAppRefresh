@@ -22,10 +22,10 @@ namespace Microsoft.Extensions.DependencyInjection
 
         private static readonly FileSystemWatcher watcher = new FileSystemWatcher();
 
-        public static string GetDocFxExecutablePath(IHostingEnvironment env)
+        public static string GetDocFxExecutablePath(string contentRootPath)
         {
             // Read the projects.assets.json for nuget path and docFx library version
-            string assetsJsonPath = Path.Combine(env.ContentRootPath, "obj\\project.assets.json");
+            string assetsJsonPath = Path.Combine(contentRootPath, "obj\\project.assets.json");
             string nugetPackPath = null;
             string docFxLibPath = null;
             using (StreamReader sr = new StreamReader(new FileStream(assetsJsonPath, FileMode.Open, FileAccess.Read)))
@@ -81,14 +81,14 @@ namespace Microsoft.Extensions.DependencyInjection
 
         }
 
-        public static IApplicationBuilder UseDocFxBuildRefresh(this IApplicationBuilder app, IHostingEnvironment env, string docFxJsonFileName = "docfx.json")
+        public static IApplicationBuilder UseDocFxBuildRefresh(this IApplicationBuilder app, string contentRootPath, string webRootPath, string docFxJsonFileName = "docfx.json")
         {
 
             var logger = GetOrCreateLogger(app, nameof(DocFxBuildExtension));
 
-            string docExePath = GetDocFxExecutablePath(env);
+            string docExePath = GetDocFxExecutablePath(contentRootPath);
 
-            watcher.Path = env.ContentRootPath;
+            watcher.Path = contentRootPath;
 
             // Watch for changes in LastAccess and LastWrite times, and
             // the renaming of files or directories.
@@ -101,13 +101,13 @@ namespace Microsoft.Extensions.DependencyInjection
 
             var OnChanged = new FileSystemEventHandler((o, args) => {
                 string lowerPath = args.FullPath.ToLower();
-                if (!IsReloading && !lowerPath.StartsWith(env.WebRootPath.ToLower()))
+                if (!IsReloading && !lowerPath.StartsWith(webRootPath.ToLower()))
                 {
                     IsReloading = true;
                     using (Process process = new Process())
                     {
                         process.StartInfo = new ProcessStartInfo(docExePath,
-                            Path.Combine(env.ContentRootPath, docFxJsonFileName));
+                            Path.Combine(contentRootPath, docFxJsonFileName));
                         process.StartInfo.UseShellExecute = false;
                         process.StartInfo.RedirectStandardOutput = true;
                         process.OutputDataReceived += new DataReceivedEventHandler((sender, e) =>
