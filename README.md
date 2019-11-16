@@ -1,6 +1,8 @@
 # ElCamino.DocFx.WebAppRefresh
-DocFx build middleware that allows you to setup a .net core web app project and adds a file watcher to your content files. When you change a content file, such as markdown, css, etc, the middleware automatically starts a docFx build in the background regenerating the target html files.
+[DocFx](https://dotnet.github.io/docfx/index.html) build middleware that allows you to setup a .net core web app project and adds a file watcher to your content files. When you change a content file, such as markdown, css, etc, the middleware automatically starts a docFx build in the background regenerating the target html files.
 [Sample .net core web application](https://github.com/dlmelendez/docFxWebAppRefresh/tree/master/sample/ElCamino.DocFx.WebAppRefresh.Sample) 
+
+[![NuGet Badge](https://buildstats.info/nuget/ElCamino.DocFx.WebAppRefresh)](https://www.nuget.org/packages/ElCamino.DocFx.WebAppRefresh/)
 
 **This library should be configured for local development only as shown below!**
 1. Create a new .net core web application 'Empty' project
