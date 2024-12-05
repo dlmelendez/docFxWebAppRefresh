@@ -25,7 +25,7 @@ namespace ElCamino.DocFx.WebAppRefresh.Sample
             {
                 app.UseDeveloperExceptionPage();
                 // only use in development, not for production
-                app.UseDocFxBuildRefresh(env.ContentRootPath, env.WebRootPath);
+                app.UseDocFxBuildRefresh(env.ContentRootPath, env.WebRootPath, excludeFoldersUnderWebRoot:[".vs"]);
             }
             app.UseDefaultFiles();
 
