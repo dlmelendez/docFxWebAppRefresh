@@ -34,8 +34,4 @@
 		<None Include="projectNugetPic.png" Pack="true" PackagePath="\" />
 	</ItemGroup>
 
-	<ItemGroup>
-    <None Include="projectNugetPic.png" Pack="true" PackagePath="\" />
-  </ItemGroup>
-
 </Project>
