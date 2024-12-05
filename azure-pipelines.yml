@@ -25,7 +25,20 @@ steps:
 - task: DotNetCoreCLI@2
   inputs:
     command: 'build'
-    projects: '**/*.sln'
+    projects: '**/ElCamino.DocFx.WebAppRefresh.sln'
     arguments: '-c $(BuildConfiguration)'
   displayName: 'build projects'
 
+- task: CopyFiles@1
+  displayName: 'Copy Files to: $(Build.ArtifactStagingDirectory)'
+  inputs:
+    Contents: |
+     **/*.dll
+     **/*.nupkg
+     **/*.snupkg
+     **/*.zip
+     **/publish/**
+    TargetFolder: '$(Build.ArtifactStagingDirectory)'
+
+- task: PublishBuildArtifacts@1
+  displayName: 'Publish Artifact: drop'
